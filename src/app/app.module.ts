@@ -14,7 +14,6 @@ import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { ReactiveFormsModule } from '@angular/forms';
-import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -26,7 +25,6 @@ import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
     ReactiveFormsModule,
     NgbModule,
     ToastrModule.forRoot(),ModalModule.forRoot(),
-    TypeaheadModule.forRoot(),
   ],
   declarations: [
     AppComponent,
