@@ -8,14 +8,30 @@
 </div>
 <div class="main-content">
   <div class="row">
-   
+
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
           <h4 class="card-title">ChatBoat</h4>
+          <ng-container *ngFor="let message of messages">
+            <div class="message" [ngClass]="{ 'from': message.author === 'bot',
+'to': message.author === 'user' }">
+              {{ message.content }}
+            </div>
+          </ng-container>
+          <label *ngIf="messages.length == 0; else dialogInfo" for="nameField">Your message</label>
+          <div class="input-group flex-nowrap">
+
+            <input type="text" class="form-control" [(ngModel)]="value" (keyup.enter)="sendMessage()" placeholder="Enter your message" aria-label="Username"
+              aria-describedby="addon-wrapping">
+          </div>
+          <button (click)="sendMessage()" class="btn btn-dark">Send</button>
+          <ng-template #dialogInfo>
+            <span [className]="'float-right'">Total messages: {{messages.length}}</span>
+          </ng-template>
         </div>
         <div class="card-body">
-      
+
         </div>
       </div>
     </div>

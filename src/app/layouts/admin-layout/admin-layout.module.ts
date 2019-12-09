@@ -9,6 +9,7 @@ import { ChartsModule } from 'ng2-charts';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { chatboatComponent } from '../../chatboat/chatboat.component';
+import { ChatService } from '../../chatboat/chat.service';
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import { chatboatComponent } from '../../chatboat/chatboat.component';
     DashboardComponent,
     UserProfileComponent,
     chatboatComponent,
-  ]
+  ],
+  providers: [ChatService]
 })
 
 export class AdminLayoutModule {}
