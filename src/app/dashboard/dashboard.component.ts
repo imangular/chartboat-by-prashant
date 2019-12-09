@@ -1,7 +1,7 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MustMatch } from '../../assets/must-match.validator';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,21 +12,12 @@ export class DashboardComponent implements OnInit {
 
   registerForm: FormGroup;
   submitted = false;
-  // events
 
-  modalRef: BsModalRef;
  
-  constructor(private modalService: BsModalService, private formBuilder: FormBuilder) {
+  constructor(private router: Router, private formBuilder: FormBuilder) {
    
   }
 
-
-
-
- 
-  openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template);
-  }
   
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -41,17 +32,16 @@ export class DashboardComponent implements OnInit {
     });
 }
 
-// convenience getter for easy access to form fields
+
 get f() { return this.registerForm.controls; }
 
 onSubmit() {
     this.submitted = true;
 
-    // stop here if form is invalid
     if (this.registerForm.invalid) {
         return;
     }
-
+    this.router.navigate(['chatboat']);
     alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value))
 }
 }
