@@ -15,6 +15,7 @@ export class ChatService {
     "hi": "Hello",
     "who are you": "My name is Agular Bot",
     "what is angular": "Angular is the best framework ever",
+    "very bad ui":"your message will be not considerd hahahaha",
     "default": "I can't understand. Can you please repeat"
   }
 
@@ -30,6 +31,6 @@ export class ChatService {
 
   getBotMessage(question: string){
     let answer = this.messageMap[question];
-    return answer || this.messageMap['default'] || this.messageMap['hi'] || this.messageMap['who are you'] || this.messageMap['what is angular'];
+    return answer || this.messageMap['default'] || this.messageMap['hi'] ||this.messageMap['very bad ui'] || this.messageMap['who are you'] || this.messageMap['what is angular'];
   }
 }
