@@ -12,9 +12,9 @@ export class ChatService {
   conversation = new Subject<Message[]>();
   
   messageMap = {
-    "Hi": "Hello",
-    "Who are you": "My name is Agular Bot",
-    "What is Angular": "Angular is the best framework ever",
+    "hi": "Hello",
+    "who are you": "My name is Agular Bot",
+    "what is angular": "Angular is the best framework ever",
     "default": "I can't understand. Can you please repeat"
   }
 
@@ -30,6 +30,6 @@ export class ChatService {
 
   getBotMessage(question: string){
     let answer = this.messageMap[question];
-    return answer || this.messageMap['default'];
+    return answer || this.messageMap['default'] || this.messageMap['hi'] || this.messageMap['who are you'] || this.messageMap['what is angular'];
   }
 }
